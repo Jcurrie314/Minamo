@@ -130,7 +130,7 @@ public extension RippleView {
     public func startAnimation() {
         ringLayer.removeAllAnimations()
         
-        let scaleAnimation = { Void -> CAAnimation in
+        let scaleAnimation : CABasicAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.scale")
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             animation.fromValue = NSNumber(value: 1 as Float)
@@ -139,7 +139,7 @@ public extension RippleView {
             return animation
         }()
         
-        let opacityAnimation = { Void -> CAAnimation in
+        let opacityAnimation : CABasicAnimation = {
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             animation.fromValue = NSNumber(value: 1 as Float)
@@ -196,7 +196,7 @@ public extension RippleView {
 }
 
 extension RippleView: UIGestureRecognizerDelegate {
-    func viewTapped(_ gesture: UITapGestureRecognizer) {
+	@objc func viewTapped(_ gesture: UITapGestureRecognizer) {
         delegate?.rippleViewTapped(self)
     }
 }

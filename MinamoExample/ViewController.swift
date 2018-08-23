@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: RippleViewDelegate {
-    func rippleViewTapped(_ view: RippleView) {
+    @objc func rippleViewTapped(_ view: RippleView) {
         view.disappear()
     }
 }
